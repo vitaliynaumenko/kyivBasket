@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "nalashtuvannya_sajtus",
+  "info": {
+    "singularName": "nalashtuvannya-sajtu",
+    "pluralName": "nalashtuvannya-sajtus",
+    "displayName": "Налаштування сайту"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

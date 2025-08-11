@@ -1,0 +1,49 @@
+@use "reset";
+@use "_variables" as *;
+@use "header";
+//@use "frontPage";
+//@use "gameSlider";
+//@use "mainSlider";
+
+/* 9. Встановлення базового шрифту та кольору */
+
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-rubik), $font-style;
+  font-size: $font-base;
+  font-weight: $font-regular;
+  line-height: 1.5;
+  background-color: $white;
+  color: $dark-gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.swiper-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.swiper-initialized {
+    opacity: 1;
+  }
+}
+
+.bg__img {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.section{
+  position: relative;
+}
+
+

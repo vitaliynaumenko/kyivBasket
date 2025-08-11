@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+.section__slider {
+  &--banner {
+    height: 750px;
+
+    .swiper {
+      height: 100%;
+    }
+  }
+}
+
+//.swiper-wrapper {
+//  height: 100%;
+//}
+
+//.slide-bg{
+//  background-size: cover;
+//  background-position: 50% 50%;
+//  background-repeat: no-repeat;
+//}
+.slider {
+  &__wr {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 125px);
+    max-width: 725px;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(25, 25, 25, 0.90) 63.92%, rgba(25, 25, 25, 0.00) 100%);
+
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right, #fadc4d 0%, transparent 100%);
+    border-image-slice: 1;
+
+    &--wr {
+      max-width: 545px;
+      width: 100%;
+    }
+
+    &--title {
+      font-size: 30px;
+      font-weight: $font-bold;
+      text-transform: uppercase;
+      color: $golden-yellow;
+      margin-bottom: 20px;
+    }
+
+    &--link {
+      display: inline-flex;
+      padding: 5px 19px;
+      font-weight: $font-bold;
+      border: .75px solid $golden-yellow;
+      border-radius: 29px;
+      text-align: center;
+      color: $golden-yellow;
+      gap: 10px;
+    }
+  }
+}

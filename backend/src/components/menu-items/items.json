@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_menu_items_items",
+  "info": {
+    "displayName": "items",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "order": {
+      "type": "integer"
+    },
+    "submenu": {
+      "displayName": "drop",
+      "type": "component",
+      "repeatable": true,
+      "component": "menu-items.drop"
+    },
+    "label": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

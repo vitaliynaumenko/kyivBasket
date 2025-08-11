@@ -1,0 +1,73 @@
+/* ===== RESET / NORMALIZE SCSS ===== */
+
+/* 1. Коректний box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Обнулення margin/padding у всіх */
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend,
+button,
+input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Наслідування шрифтів для форм */
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+/* 4. Видалення списків */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 5. Видалення підкреслення */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 6. Зображення */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 7. Заборона масштабування для input[type=number] у Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 8. Краще відображення для кнопок */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+

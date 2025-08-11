@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ligas",
+  "info": {
+    "singularName": "liga",
+    "pluralName": "ligas",
+    "displayName": "Ліга",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sex": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Sex"
+    }
+  }
+}
