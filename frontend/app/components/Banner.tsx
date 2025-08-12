@@ -1,7 +1,7 @@
 'use client'
 
 import SwiperSlider from "@/app/components/SwiperSlider";
-import {Navigation} from "swiper/modules";
+import {Navigation, Pagination} from "swiper/modules";
 
 import '../styles/banner.scss'
 import {getPosts} from "@/app/api/api";
@@ -34,10 +34,9 @@ export default function Banner() {
 
 
     return (
-
         <section className="section section__slider--banner">
             <SwiperSlider
-                optionModules={[Navigation]}
+                optionModules={[Pagination]}
                 items={sliderData}
                 renderItems={(item, index) => {
                     const imgUrl: string = item?.attributes?.Image.data[0].attributes.url

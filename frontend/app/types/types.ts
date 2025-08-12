@@ -57,9 +57,11 @@ export interface IMenuItem {
     label: string;
     url: string;
     order: number;
-    submenu?: ISubMenuItem[];
+    submenu?: ISubMenuItem[] | undefined;
 }
 
 export interface IMenuProps {
-    menuItems: IMenuItem[];
+    menuItems:{
+        items:IMenuItem[];
+    }
 }

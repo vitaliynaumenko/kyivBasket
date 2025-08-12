@@ -68,3 +68,23 @@
     }
   }
 }
+
+
+.swiper-pagination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-bullet {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #D9D9D9;
+    background: none;
+
+    &-active {
+      width: 20px;
+      height: 20px;
+      background: $golden-yellow
+    }
+  }
+
+}

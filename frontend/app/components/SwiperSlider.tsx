@@ -31,7 +31,7 @@ export default function SwiperSlider<T> ({items,renderItems,optionModules, space
             modules={optionModules}
             slidesPerView={sliderPreview}
             navigation={navigation}
-            pagination={pagination}
+            pagination={pagination ? { clickable: true } : false}
             loop={loop}
             centeredSlides={centeredSlides}
         >
