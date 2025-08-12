@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_games_igra",
+  "info": {
+    "displayName": "Ігра",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Statistics": {
+      "type": "string"
+    },
+    "count": {
+      "type": "string"
+    }
+  }
+}

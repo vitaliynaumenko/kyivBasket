@@ -1,4 +1,5 @@
 import {request, gql} from 'graphql-request';
+import {IGame, IPost} from "@/app/types/types";
 
 const STRAPI_GRAPHQL_ENDPOINT = 'http://localhost:1337/graphql'
 
@@ -28,12 +29,11 @@ const GET_MENUS = gql`
 `;
 
 
-
 // Get POSTS
 
 const GET_POSTS = gql`
    query GetPosts($typeLiga: String!) {
-  posts(filters: { liga: { Sex: { eq: $typeLiga } } }) {
+      posts(filters: { liga: { Sex: { eq: $typeLiga } } }) {
     data {
       id
       attributes {
@@ -60,42 +60,67 @@ const GET_POSTS = gql`
   }
 }`;
 
+const GAME_FIELDS = `
+  id
+  attributes {
+    Event_location
+    Feature_game
+    event_time
+    Komanda {
+      id
+      Logo {
+        data {
+          attributes { url }
+        }
+      }
+      Statistics
+      count
+    }
+    Oponent {
+      id
+      Logo {
+        data {
+          attributes { url }
+        }
+      }
+      Statistics
+      count
+    }
+  }
+`;
 
-
-export interface IPost {
-  id: string;
-  attributes: {
-    title: string;
-    description: string;
-    Image: {
-      data: {
-        attributes: {
-          url: string;
-          alternativeText: string;
-        };
-      };
-    };
-    liga: {
-      data: {
-        id: string;
-        attributes: {
-          Sex: string;
-        };
-      };
-    };
-  };
-}
-
+const GET_GAMES = `
+  query GetGames($limit: Int, $featureGame: Boolean) {
+    spisokIgors(
+      filters: { Feature_game: { eq: $featureGame } }
+      pagination: { limit: $limit }
+      sort: ["id:desc"]
+    ) {
+      data {
+        ${GAME_FIELDS}
+      }
+    }
+  }
+`;
 
 
 export async function getMenu() {
-  type MenuResponse = { menus: { data: any[] } };
-  const data = await request<MenuResponse>(STRAPI_GRAPHQL_ENDPOINT, GET_MENUS);
-  return data.menus.data;
+    type MenuResponse = { menus: { data: any[] } };
+    const data = await request<MenuResponse>(STRAPI_GRAPHQL_ENDPOINT, GET_MENUS);
+    return data.menus.data;
 }
 
-export async function getPosts(typeLiga:string):Promise<IPost[]>{
-  type PostsResponse = {posts:{data:IPost[]}}
-  const data = await request<PostsResponse>(STRAPI_GRAPHQL_ENDPOINT, GET_POSTS, { typeLiga })
-  return data.posts.data
+export async function getPosts(typeLiga: string): Promise<IPost[]> {
+    type PostsResponse = { posts: { data: IPost[] } }
+    const data = await request<PostsResponse>(STRAPI_GRAPHQL_ENDPOINT, GET_POSTS, {typeLiga})
+    return data.posts.data
+}
+
+export async function getGames(limit?: number, isFeature?: boolean): Promise<IGame[]> {
+    type GamesResponse = { spisokIgors: { data: IGame[] } };
+    const data = await request<GamesResponse>(STRAPI_GRAPHQL_ENDPOINT, GET_GAMES,
+        {limit, isFeature}
+    )
+
+    return data.spisokIgors.data
 }

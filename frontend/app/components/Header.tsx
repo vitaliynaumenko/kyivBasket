@@ -3,25 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import '../styles/header.scss'
+import {IMenuProps, ISubMenuItem} from "@/app/types/types";
 
-interface ISubMenuItem {
-    label: string;
-    url: string;
-}
 
-interface IMenuItem {
-    id: string | number;
-    label: string;
-    url: string;
-    order: number;
-    submenu?: ISubMenuItem[];
-}
 
-interface Props {
-    menuItems: IMenuItem[];
-}
-
-export default function Header({menuItems}: Props) {
+export default function Header({menuItems}: IMenuProps) {
 
     const renderSubMenu = (item:ISubMenuItem)=>(
         <div className='header__menu--submenu'>
@@ -63,6 +49,9 @@ export default function Header({menuItems}: Props) {
                         }
 
                     </ul>
+                    <div className="header__search">
+                        <input type="text" placeholder='Пошук' className='header__search-input'/>
+                    </div>
                 </nav>
             </div>
         </header>

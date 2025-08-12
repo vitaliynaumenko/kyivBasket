@@ -4,16 +4,16 @@ import SwiperSlider from "@/app/components/SwiperSlider";
 import {Navigation} from "swiper/modules";
 
 import '../styles/banner.scss'
-import {getPosts, IPost} from "@/app/api/api";
+import {getPosts} from "@/app/api/api";
 import {useContext, useEffect, useState} from "react";
 import {TeamContext} from "@/app/context/context";
+import {IPost} from "@/app/types/types";
 
 
 export default function Banner() {
 
     const {team} = useContext(TeamContext)
 
-    console.log('team',team);
 
     const [sliderData, setSliderData] = useState<IPost[]>([])
 

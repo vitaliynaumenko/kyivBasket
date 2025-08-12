@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spisok_igors",
+  "info": {
+    "singularName": "spisok-igor",
+    "pluralName": "spisok-igors",
+    "displayName": "Список ігор",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Komanda": {
+      "displayName": "Ігра",
+      "type": "component",
+      "repeatable": false,
+      "component": "games.igra"
+    },
+    "Oponent": {
+      "displayName": "Oponent",
+      "type": "component",
+      "repeatable": false,
+      "component": "games.oponent"
+    },
+    "Event_location": {
+      "type": "string"
+    },
+    "Feature_game": {
+      "type": "boolean"
+    },
+    "event_time": {
+      "type": "string"
+    }
+  }
+}

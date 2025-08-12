@@ -469,6 +469,41 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiSpisokIgorSpisokIgor extends Schema.CollectionType {
+  collectionName: 'spisok_igors';
+  info: {
+    description: '';
+    displayName: '\u0421\u043F\u0438\u0441\u043E\u043A \u0456\u0433\u043E\u0440';
+    pluralName: 'spisok-igors';
+    singularName: 'spisok-igor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::spisok-igor.spisok-igor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    Event_location: Attribute.String;
+    event_time: Attribute.String;
+    Feature_game: Attribute.Boolean;
+    Komanda: Attribute.Component<'games.igra'>;
+    Oponent: Attribute.Component<'games.oponent'>;
+    publishedAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::spisok-igor.spisok-igor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
@@ -909,6 +944,7 @@ declare module '@strapi/types' {
       'api::menu.menu': ApiMenuMenu;
       'api::nalashtuvannya-sajtu.nalashtuvannya-sajtu': ApiNalashtuvannyaSajtuNalashtuvannyaSajtu;
       'api::post.post': ApiPostPost;
+      'api::spisok-igor.spisok-igor': ApiSpisokIgorSpisokIgor;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
